@@ -61,13 +61,13 @@ while True:
 
         if matches[matchIndex]:
             matchName = imageNames[matchIndex].upper()
-            y1,x2,y2,x1 = faceLoc
+            top, right, bottom, left = faceLoc
             # needs to be resized to original
-            y1, x2, y2, x1 = y1*4,x2*4,y2*4,x1*4
+            top, right, bottom, left = top*4, right*4, bottom*4, left*4
             # display a box around identified matching face
-            cv2.rectangle(img, (y1,x1), (y2,x2), (0,255,0), 2)
-            cv2.rectangle(img, (x1, y2-35),(x2,y2),(0,255,0), cv2.FILLED)
-            cv2.putText(img, matchName, (x1+6, y2-6), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
+            cv2.rectangle(img, (left, top), (right, bottom), (0, 255, 0), 2)
+            cv2.rectangle(img, (left, bottom-35),(right,bottom),(0, 255, 0), cv2.FILLED)
+            cv2.putText(img, matchName, (left+6, bottom-6), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
             markAttendance(matchName)
 
     cv2.imshow('Webcam', img)
