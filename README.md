@@ -41,3 +41,4 @@ Install dependencies: `pip install opencv-python numpy face-recognition`
 - Add a quit option, release camera properly and create `Attendance.csv` if missing
 - Require a match across multiple frames to reduce false positives
 - Allow multiple images per person and improve matching
+- Failure modes: lighting, pose, webcam quality, lookalikes, threshold
